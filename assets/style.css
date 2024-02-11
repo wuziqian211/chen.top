@@ -1,6 +1,31 @@
+:root {
+  --background-color: #fff;
+  --background-color-translucent: #fff9;
+  --background-color-quarter-transparent: #fff5;
+  --background-hover-color-quarter-transparent: #ddd5;
+  --highlight-color: #1d5;
+  --highlight-hover-color: #2e6;
+  --highlight-color-2: #de2;
+  --secondary-color: #777;
+  --text-color: #222;
+  --anchor-decoration-color: #333;
+  --anchor-decoration-hover-color: #aaa;
+}
+
+span.description {
+  color: var(--secondary-color);
+}
+h2, a, strong {
+  color: var(--highlight-color);
+}
+a:hover {
+  color: var(--highlight-hover-color);
+}
+
 * {
-  font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
-  overflow-wrap: break-word;
+  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   text-align: justify;
   transition: all 0.5s;
 }
@@ -12,67 +37,132 @@ html {
   height: 100%;
 }
 body {
-  background: #fff;
-  color: #222;
+  background: radial-gradient(circle at 10% 30%, var(--highlight-color-2), transparent 20%),
+    radial-gradient(circle at 40% 70%, var(--highlight-color), transparent 60%),
+    radial-gradient(circle at 80% 35%, var(--highlight-color-2), transparent 40%),
+    radial-gradient(circle at 90% 90%, var(--highlight-color), transparent 30%), 
+    var(--background-color);
+  color: var(--text-color);
   margin: 0;
   min-height: 100%;
 }
+@supports (background: color-mix(in srgb, #000, transparent 50%)) {
+  body {
+    background: radial-gradient(circle at 10% 30%, color-mix(in srgb, var(--highlight-color-2), transparent 70%), transparent 20%),
+      radial-gradient(circle at 40% 70%, color-mix(in srgb, var(--highlight-color), transparent 60%), transparent 60%),
+      radial-gradient(circle at 80% 35%, color-mix(in srgb, var(--highlight-color-2), transparent 40%), transparent 40%),
+      radial-gradient(circle at 90% 90%, color-mix(in srgb, var(--highlight-color), transparent 85%), transparent 30%), 
+      var(--background-color);
+  }
+}
 header {
-  background: #fff;
+  background: var(--background-color-translucent);
   box-shadow: 0 0 5px #777;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 div.header {
-  font-size: 24px;
+  align-items: center;
+  display: flex;
   margin: 0 auto;
   padding: 15px 0;
   width: 1200px;
 }
-div.header span.description {
-  color: #777;
+div.header > div.left {
+  flex: 1;
+  font-size: 24px;
+}
+div.header > div.left > span.description {
   font-size: 14px;
 }
 main {
-  animation: 0.5s both zoomInDown;
+  animation: 0.5s both fadeIn;
+  border-radius: 20px;
   font-size: 20px;
   margin: 20px auto;
   padding: 10px;
   width: 1200px;
 }
 main.loading {
-  animation-name: zoomOutUp;
-  transform-origin: center bottom;
+  animation-name: fadeOut;
+}
+h2, p {
+  margin: 10px 0;
+}
+div.grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+div.grid-item {
+  background: var(--background-color-quarter-transparent);
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px #0007;
+  padding: 20px;
+  position: relative;
+}
+div.grid-item:hover {
+  background: var(--background-color-translucent);
+}
+div.grid-item:active {
+  background: var(--background-hover-color-quarter-transparent);
+}
+div.grid-item a.grid-link {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+div.main-info {
+  align-items: center;
+  background: var(--background-color-quarter-transparent);
+  border-radius: 10px;
+  display: flex;
+  margin: 0 0 5px;
+  padding: 5px 10px;
+}
+div.main-info > div.left {
+  margin: 0 5px 0 0;
+  overflow-wrap: break-word;
+}
+div.main-info > div.detail {
+  flex: 1;
 }
 a {
-  color: #09f;
-  text-decoration: underline dotted #333;
+  text-decoration: underline dotted var(--anchor-decoration-color);
   text-decoration-thickness: 2px;
 }
 a:hover {
-  color: #3bf;
-  text-decoration-color: #aaa;
+  text-decoration-color: var(--anchor-decoration-hover-color);
 }
 div.header a {
   text-decoration: none;
 }
 footer {
-  color: #777;
+  color: var(--secondary-color);
   font-size: 16px;
+  margin: 10px 10px 0;
   text-align: center;
 }
+
 @media (max-width: 1439px) {
   div.header, main {
     width: 900px;
   }
 }
+
 @media (max-width: 959px) {
   div.header {
-    text-align: center;
     width: auto;
   }
-  div.header span.description {
+  div.header > div.left {
+    text-align: center;
+  }
+  div.header > div.left > span.description, div.header > div.right {
     display: none;
   }
   main {
@@ -80,48 +170,44 @@ footer {
     width: auto;
   }
 }
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #ccc;
-  }
-  body, header {
-    background: #222;
-  }
-  span.description, footer {
-    color: #999;
-  }
-  a {
-    color: #08e;
-    text-decoration-color: #aaa;
-  }
-  a:hover {
-    color: #3ae;
-    text-decoration-color: #ccc;
+
+@media (max-width: 767px) {
+  div.grid {
+    grid-template-columns: 1fr;
   }
 }
 
-/* From animate.css - https://animate.style */
-@keyframes zoomInDown {
-  from {
-    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    opacity: 0;
-    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
-  }
-  60% {
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
-    opacity: 1;
-    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background-color: #222;
+    --background-color-translucent: #2229;
+    --background-color-quarter-transparent: #2225;
+    --background-hover-color-quarter-transparent: #0005;
+    --highlight-color: #1c1;
+    --highlight-hover-color: #2e2;
+    --highlight-color-2: #cd1;
+    --secondary-color: #999;
+    --text-color: #ccc;
+    --anchor-decoration-color: #aaa;
+    --anchor-decoration-hover-color: #ccc;
   }
 }
-@keyframes zoomOutUp {
-  40% {
-    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    opacity: 1;
-    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+
+/* From Animate.css - https://animate.style/ - MIT License */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
   to {
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
     opacity: 0;
-    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0);
   }
 }
