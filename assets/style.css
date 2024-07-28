@@ -40,7 +40,7 @@ body {
   background: radial-gradient(circle at 10% 30%, var(--highlight-color-2), transparent 20%),
     radial-gradient(circle at 40% 70%, var(--highlight-color), transparent 60%),
     radial-gradient(circle at 80% 35%, var(--highlight-color-2), transparent 40%),
-    radial-gradient(circle at 90% 90%, var(--highlight-color), transparent 30%), 
+    radial-gradient(circle at 90% 90%, var(--highlight-color), transparent 30%),
     var(--background-color);
   background-attachment: fixed;
   color: var(--text-color);
@@ -52,7 +52,7 @@ body {
     background: radial-gradient(circle at 10% 30%, color-mix(in srgb, var(--highlight-color-2), transparent 70%), transparent 20%),
       radial-gradient(circle at 40% 70%, color-mix(in srgb, var(--highlight-color), transparent 60%), transparent 60%),
       radial-gradient(circle at 80% 35%, color-mix(in srgb, var(--highlight-color-2), transparent 40%), transparent 40%),
-      radial-gradient(circle at 90% 90%, color-mix(in srgb, var(--highlight-color), transparent 85%), transparent 30%), 
+      radial-gradient(circle at 90% 90%, color-mix(in srgb, var(--highlight-color), transparent 85%), transparent 30%),
       var(--background-color);
   }
 }
@@ -80,7 +80,7 @@ div.header > div.left > span.description {
 main {
   animation: 0.5s both fadeIn;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 18px;
   margin: 20px auto;
   padding: 10px;
   width: 1200px;
@@ -117,21 +117,6 @@ div.grid-item a.grid-link {
   position: absolute;
   top: 0;
   width: 100%;
-}
-div.main-info {
-  align-items: center;
-  background: var(--background-color-quarter-transparent);
-  border-radius: 10px;
-  display: flex;
-  margin: 0 0 5px;
-  padding: 5px 10px;
-}
-div.main-info > div.left {
-  margin: 0 5px 0 0;
-  overflow-wrap: break-word;
-}
-div.main-info > div.detail {
-  flex: 1;
 }
 a {
   text-decoration: underline dotted var(--anchor-decoration-color);

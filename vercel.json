@@ -6,7 +6,12 @@
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "*" },
-        { "key": "Access-Control-Allow-Headers", "value": "*" }
+        { "key": "Access-Control-Allow-Headers", "value": "*" },
+        { "key": "Access-Control-Max-Age", "value": "7200" },
+        { "key": "Content-Security-Policy", "value": "default-src 'none'; img-src 'self' data:; media-src 'self'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" },
+        { "key": "Referrer-Policy", "value": "same-origin" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Robots-Tag", "value": "noindex" }
       ]
     }
   ]
