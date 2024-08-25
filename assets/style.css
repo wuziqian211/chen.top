@@ -2,7 +2,7 @@
   --background-color: #fff;
   --background-color-translucent: #fff9;
   --background-color-three-quarters-transparent: #fff5;
-  --background-hover-color-quarter-transparent: #ddd5;
+  --background-active-color-quarter-transparent: #ddd5;
   --text-color: #222;
   --highlight-color: #1d5;
   --highlight-hover-color: #2e6;
@@ -111,7 +111,7 @@ div.grid-item:hover {
   background: var(--background-color-translucent);
 }
 div.grid-item:active {
-  background: var(--background-hover-color-quarter-transparent);
+  background: var(--background-active-color-quarter-transparent);
 }
 div.grid-item a.grid-link {
   height: 100%;
@@ -169,7 +169,7 @@ footer {
     --background-color: #222;
     --background-color-translucent: #2229;
     --background-color-three-quarters-transparent: #2225;
-    --background-hover-color-quarter-transparent: #0005;
+    --background-active-color-quarter-transparent: #0005;
     --text-color: #ccc;
     --highlight-color: #1c1;
     --highlight-hover-color: #2e2;
