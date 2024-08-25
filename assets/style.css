@@ -1,7 +1,7 @@
 :root {
   --background-color: #fff;
   --background-color-translucent: #fff9;
-  --background-color-quarter-transparent: #fff5;
+  --background-color-three-quarters-transparent: #fff5;
   --background-hover-color-quarter-transparent: #ddd5;
   --text-color: #222;
   --highlight-color: #1d5;
@@ -101,7 +101,7 @@ div.grid {
   padding: 10px 0;
 }
 div.grid-item {
-  background: var(--background-color-quarter-transparent);
+  background: var(--background-color-three-quarters-transparent);
   border-radius: 20px;
   box-shadow: 10px 10px 5px #0007;
   padding: 20px;
@@ -168,7 +168,7 @@ footer {
     color-scheme: dark;
     --background-color: #222;
     --background-color-translucent: #2229;
-    --background-color-quarter-transparent: #2225;
+    --background-color-three-quarters-transparent: #2225;
     --background-hover-color-quarter-transparent: #0005;
     --text-color: #ccc;
     --highlight-color: #1c1;
